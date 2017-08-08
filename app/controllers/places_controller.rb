@@ -16,7 +16,8 @@ class PlacesController < ApplicationController
   def destroy
   end
 
-  def update
+  def edit
+    @place = Place.find(params[:id])
   end
 
   def show
