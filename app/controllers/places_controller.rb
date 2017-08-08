@@ -8,7 +8,8 @@ class PlacesController < ApplicationController
   end
 
   def create
-    @place = Place.create(place_params[:params])
+    @place = Place.create(place_params)
+    redirect_to root_path
   end
 
   def destroy
@@ -20,5 +21,6 @@ class PlacesController < ApplicationController
   private
 
   def place_params
+    params.require(:place).permit(:name, :description, :address)
   end
 end
